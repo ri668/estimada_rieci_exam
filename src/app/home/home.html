@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Weather Dashboard</h1>
+  <mat-form-field>
+    <input matInput [(ngModel)]="city" placeholder="Enter City">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchWeather()">Search</button>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="weatherData">
+    <h2>{{ weatherData.name }}</h2>
+    <p>{{ weatherData.weather[0].description | titlecase }}</p>
+    <p>Temperature: {{ weatherData.main.temp }} °C</p>
+    <p>Humidity: {{ weatherData.main.humidity }} %</p>
+  </div>
+</div>
